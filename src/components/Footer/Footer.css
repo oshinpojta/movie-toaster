@@ -1,0 +1,42 @@
+.footer{
+    background-color: rgb(24, 24, 24);
+    height: 6rem;
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    margin-top: 5rem;
+    bottom: 0%;
+}
+
+.footer p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+@media screen and (max-width : 1000px) {
+    .footer{
+        height: 5rem;
+        padding-top: 0.4rem;
+        margin-top: 3rem;
+    }
+    
+    .footer p {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width : 500px) {
+    .footer{
+        height: 4rem;
+        padding-top: 0.4rem;
+        margin-top: 2rem;
+    }
+    
+    .footer p {
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+}

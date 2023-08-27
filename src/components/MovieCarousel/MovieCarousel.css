@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700");
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+html,
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Quicksand", sans-serif;
+	font-size: 62.5%;
+	font-size: 10px;
+}
+/*-- Inspiration taken from abdo steif -->
+/* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
+
+/* Home section */
+/* .contain-bg{
+	height: 80vh;
+	background-size: contain;
+} */
+
+.carousel-section {
+	width: 100%;
+	height: 87vh;
+	background-position: center top;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-bottom: 3rem;
+}
+
+@media screen and (max-width : 1200px) {
+	.carousel-section {
+		height: 45vh;
+	}
+}
+
+@media screen and (max-width : 700px) {
+	.carousel-section {
+		height: 30vh;
+	}
+}

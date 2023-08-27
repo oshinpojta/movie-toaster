@@ -1,0 +1,23 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 10px;
+}
+
+.wrapper div{
+    margin: 4px;
+}
+
+.pagination-container{
+    margin: 2rem;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+
+.spacing-container{
+    height: 90px;
+    width: 100%;
+    background-color: rgb(22, 22, 22);
+}
+
