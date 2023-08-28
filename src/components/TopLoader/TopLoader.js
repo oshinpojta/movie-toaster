@@ -4,7 +4,7 @@ import LoadingBar from 'react-top-loading-bar'
 
 const TopLoader = (props) => {
     const { progress, setProgress } = props;
-    console.log(props);
+    // console.log(props);
     return (
       <div>
         <LoadingBar

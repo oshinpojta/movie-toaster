@@ -1,0 +1,68 @@
+.movie-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.movie-card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.59);
+    background-color: rgb(179, 238, 218);
+}
+
+.card-content{
+    /* background-color: brown; */
+    height: 18rem;
+}
+
+@media screen and (max-width : 900px) {
+   .card-content{
+    height: 20rem;
+   }
+}
+
+@media screen and (max-width : 500px) {
+    .card-content{
+        height: 20rem;
+    }
+}
+ 
+
+.card-action{
+    display: block;
+    background-color:  rgb(224, 222, 222);
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card-action:hover{
+    background-color: rgb(175, 175, 175);
+}
+
+.favourite-icon{
+    color: red;
+    cursor: pointer;
+}
+.favourite-saved-icon{
+    color : rgb(255, 81, 0);
+    cursor: pointer;
+}
+
+.list-icon{
+    color: rgb(111, 126, 47);
+    cursor: pointer;
+}
+
+.list-saved-icon{
+    color: rgb(209, 154, 2);
+    cursor: pointer;
+}
+
+.edit-icon{
+    color: rgb(69, 59, 163);
+    cursor: pointer;
+}
+
+.delete-icon{
+    color: rgb(63, 63, 63);
+    cursor: pointer;
+}

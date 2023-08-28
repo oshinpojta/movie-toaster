@@ -1,6 +1,7 @@
 import React from 'react'
 import "./NavBar.css"
 import LiveTvIcon from '@mui/icons-material/LiveTv';
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -14,10 +15,10 @@ const NavBar = () => {
             </div>
             <div id="mainListDiv" className="main_list">
                 <ul className="navlinks">
-                    <li><a href="/">About</a></li>
-                    <li><a href="/">Portfolio</a></li>
-                    <li><a href="/">Services</a></li>
-                    <li><a href="/">Contact</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/movies">Movies</Link></li>
+                    <li><Link target='_blank' to="https://oshinpojta.netlify.app/">Portfolio</Link></li>
+                    <li><Link target='_blank' to="https://www.linkedin.com/in/oshin-pojta/">Contact</Link></li>
                 </ul>
             </div>
             <span className="navTrigger">

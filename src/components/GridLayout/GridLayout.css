@@ -1,12 +1,29 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(4, 2fr);
-    gap: 10px;
+    gap: 20px;
+    padding-left: 4%;
+    padding-right: 2%;
+    min-height: 52vh;
 }
 
-.wrapper div{
-    margin: 4px;
-}
+@media screen and (max-width : 1200px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 3fr);
+        gap: 10px;
+        padding-left: 2%;
+    }
+ }
+
+@media screen and (max-width : 900px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        gap: 10px;
+        padding-left: 2%;
+    }
+ }
 
 .pagination-container{
     margin: 2rem;
@@ -19,5 +36,13 @@
     height: 90px;
     width: 100%;
     background-color: rgb(22, 22, 22);
+    /* margin-bottom: 2rem; */
 }
 
+.filters-div{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 5em;
+    margin-bottom: 3rem;
+    /* border: 4px solid rgb(199, 199, 199); */
+}
