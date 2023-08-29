@@ -60,21 +60,21 @@ export default function EditForm(props) {
                 <label>Full Plot</label>
                 <textarea rows="10" cols="110">{fullplot}</textarea>
                 <label>Cast</label>
-                <input type='text' value={cast.toString()} placeholder='Cast'/>
+                <input type='text' value={cast ? cast.toString() : ""} placeholder='Cast'/>
                 <label>Poster URL</label>
                 <input type='text' value={poster} placeholder='Poster URL'/>
                 <label>Rated</label>
                 <input type='text' value={rated} placeholder='Rated'/>
                 <label>Directors</label>
-                <input type='text' value={directors.toString()} placeholder='Directors'/>
+                <input type='text' value={directors ? directors.toString() : ""} placeholder='Directors'/>
                 <label>Type</label>
                 <input type='text' value={type} placeholder='Type'/>
                 <label>Runtime</label>
                 <input type='text' value={runtime} placeholder='Runtime'/>
                 <label>Countries</label>
-                <input type='text' value={countries.toString()} placeholder='Countries'/>
+                <input type='text' value={countries ? countries.toString() : ""} placeholder='Countries'/>
                 <label>Genres</label>
-                <input type='text' value={genres.toString()} placeholder='Genres'/>
+                <input type='text' value={genres ? genres.toString() : ""} placeholder='Genres'/>
                 <label>Released On</label>
                 <input type='datetime-local' value={new Date(released).toISOString().slice(0,19)} placeholder='Released On'/>
                 <div className='form-buttons'>
