@@ -9,9 +9,8 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
-import DeleteIcon from '@mui/icons-material/Delete';
 import "./MovieCard.css"
-import AppContext from '../../contexts/AppContext';
+import DeleteBtn from '../DeleteModal/DeleteBtn';
 
 const MovieCard = (props) => {
 
@@ -21,7 +20,7 @@ const MovieCard = (props) => {
     poster,tomatoes,type,WritableStream,YoutubeSearchedFor,_id
   } = props.movie;
 
-  const { isBookmarked, isFavorite, handleBookmarks, handleFavorites } = props.properties;
+  const { isBookmarked, isFavorite, handleBookmarks, handleFavorites, handleDelete } = props.properties;
 
   return (
     <Card sx={{ maxWidth: 350 }} className='movie-card'>
@@ -42,7 +41,7 @@ const MovieCard = (props) => {
           {isFavorite? <FavoriteIcon fontSize='large' className='favourite-icon' onClick={() => handleFavorites(_id)} /> : <FavoriteBorderIcon fontSize='large' className='favourite-saved-icon' onClick={() => handleFavorites(_id)} />}
           {isBookmarked? <BookmarkAddedIcon fontSize='large' className='list-saved-icon' onClick={() => handleBookmarks(_id)} /> : <BookmarkAddIcon fontSize='large' className='list-icon' onClick={() => handleBookmarks(_id)} />}
           <BorderColorIcon fontSize='large' className='edit-icon' />
-          <DeleteIcon fontSize='large' className='delete-icon' />
+          <DeleteBtn _id={_id} handleDelete={handleDelete} />
         </CardActions>
       </div>
     </Card>

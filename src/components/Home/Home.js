@@ -22,9 +22,10 @@ const Home = () => {
             <li>1. Added Search Bar for searching based on title, plot, cast, directors, genres, languages etc</li>
             <li>2. Use of webhooks like useState, useEffect, useRef, useContext </li>
             <li>3. Added features like setting offset and limit for pagination</li>
-            <li>4. Advanced UI like Top-Loader and Infinite-Scroll</li>
-            <li>5. Elegant card responsive-ui</li>
-            <li>6. Enjoy this piece of Art ...!!!</li>
+            <li>4. You can now Bookmark and add Favorite movies to Storage</li>
+            <li>5. Advanced UI like Top-Loader and Infinite-Scroll</li>
+            <li>6. Elegant card responsive-ui</li>
+            <li>7. Enjoy this piece of Art ...!!!</li>
           </ul>
           
         </h3>

@@ -79,6 +79,15 @@ const GridLayout = (props) => {
     }
   }
 
+  const handleDelete = (_id) => {
+    setProgress(15);
+    setBookmarkedMovies(bookmarkedMovies.filter( id => id !== _id));
+    setFavouriteMovies(favoriteMovies.filter( id => id !== _id ));
+    axios.delete(`${serverURL}/movies/delete/${_id}`).then(response => {
+      getMovies();
+    })
+  }
+
   const loadMore = () => {
     setProgress(40)
     setLimit(2*limit);
@@ -91,14 +100,15 @@ const GridLayout = (props) => {
     })
   }
 
-
-  useEffect(() => {
+  const getMovies = () => {
     setProgress(40)
     axios.post(`${serverURL}/movies/all?limit=${limit}&offset=${offset}`,  { search_text : searchText }, jsonHeaders).then((response) => {
       setMovies(response.data.data.movies);
       setProgress(100)
     })
-  }, []);
+  }
+
+  useEffect(getMovies, []);
 
   return (
     <>
@@ -126,7 +136,8 @@ const GridLayout = (props) => {
             isBookmarked : bookmarkedMovies.includes(item._id),
             isFavorite : favoriteMovies.includes(item._id),
             handleBookmarks,
-            handleFavorites
+            handleFavorites,
+            handleDelete
           }} movie={{...item}} />
         })}
     </div> 

@@ -12,7 +12,7 @@ My PortFolio : "https://oshinpojta.netlify.app/"
 # Movies Page
     Project Assignment Page
     - added Search Bar for searching based on title, plot, cast, directors, genres, languages etc 
-    - elegant card ui
+    - you can now bookmark and add favorite movies to local-storage
     - use of webhooks like useState, useEffect, useRef, useContext 
     - added features like setting offset and limit for pagination
     - advanced UI like Top-Loader and Infinite-Scroll
