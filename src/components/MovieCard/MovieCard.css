@@ -47,17 +47,33 @@
     cursor: pointer;
 }
 
+.favourite-icon:hover{
+    color: rgb(250, 85, 85);
+    cursor: pointer;
+}
+.favourite-saved-icon:hover{
+    color : rgb(253, 151, 104);
+    cursor: pointer;
+}
+
 .list-icon{
     color: rgb(111, 126, 47);
     cursor: pointer;
 }
 
 .list-saved-icon{
-    color: rgb(209, 154, 2);
+    color: rgb(150, 111, 6);
     cursor: pointer;
 }
 
-.edit-icon{
-    color: rgb(69, 59, 163);
-    cursor: pointer;
+.list-icon:hover{
+    color: rgb(154, 177, 52);
+    /* font-size: 3rem;
+    overflow: visible; */
+}
+
+.list-saved-icon:hover{
+    color: rgb(189, 141, 9);
+    /* font-size: 3rem;
+    overflow: visible; */
 }

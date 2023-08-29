@@ -9,25 +9,23 @@ import TopLoader from '../TopLoader/TopLoader';
 import Spinner from '../Spinner/Spinner';
 import TagFacesSharpIcon from '@mui/icons-material/TagFacesSharp';
 import WavingHandIcon from '@mui/icons-material/WavingHand';
-import { BottomNavigation } from '@mui/material';
-import CheckboxItem from '../CheckBox/CheckBoxItem';
 import SearchBar from '../SearchBar/SearchBar';
 import AppContext from '../../contexts/AppContext';
 
 const jsonHeaders = { headers: { "Content-Type": "application/json" } };
 
 const serverURL = process.env.REACT_APP_NODEJS_URL;
-const Genres = [ 
-  { title : 'Comedy'},
-  { title : 'Crime'},
-  { title : 'Horror'},
-  { title : 'Drama'},
-  { title : 'Adventure'},
-  { title : 'Biography'},
-  { title : 'Animation'},
-  { title : 'Documentary'},
-  { title : 'Action'}
-]
+// const Genres = [ 
+//   { title : 'Comedy'},
+//   { title : 'Crime'},
+//   { title : 'Horror'},
+//   { title : 'Drama'},
+//   { title : 'Adventure'},
+//   { title : 'Biography'},
+//   { title : 'Animation'},
+//   { title : 'Documentary'},
+//   { title : 'Action'}
+// ]
 
 const GridLayout = (props) => {
 
@@ -104,6 +102,7 @@ const GridLayout = (props) => {
     setProgress(40)
     axios.post(`${serverURL}/movies/all?limit=${limit}&offset=${offset}`,  { search_text : searchText }, jsonHeaders).then((response) => {
       setMovies(response.data.data.movies);
+      console.log(response.data.data.movies)
       setProgress(100)
     })
   }

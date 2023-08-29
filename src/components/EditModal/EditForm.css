@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+
+.edit-icon{
+    color: rgb(49, 29, 228);
+    cursor: pointer;
+}
+
+.edit-icon:hover{
+    color: rgb(58, 144, 224);
+}
+
+
+/* Modal Begin */
+
+.edit-modal{
+    /* background-color: aquamarine; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.edit-box h1{
+    font-family: 'Kanit', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+
+.edit-box p{
+    font-family: 'Kanit', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.edit-form-typography{
+    /* background-color: brown; */
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+.edit-form{
+    display: block;
+    /* background-color: aqua; */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.edit-form label {
+    display: block;
+    font-size: 2rem;
+    margin: 0.7rem;
+    font-weight: 600;
+    font-family: 'Kanit', sans-serif;
+    background-color: rgb(48, 48, 48);
+    color: aliceblue;
+}
+
+.edit-form input {
+    display: block;
+    width: 100%;
+    font-size: 1.8rem;
+    border: none;
+    color: rgb(95, 94, 94);
+    font-weight: 600;
+    background-color: rgb(223, 226, 226);
+    border-radius: 2px;
+    padding: 0.5rem;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    box-shadow: 3px 3px 3px 2px #ccc inset;
+}
+
+.edit-form textarea {
+    display: block;
+    width: 100%;
+    font-size: 1.8rem;
+    color: rgb(95, 94, 94);
+    font-weight: 600;
+    background-color: rgb(223, 226, 226);
+    border: none;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    box-shadow: 3px 3px 3px 2px #ccc inset;
+}
+
+.form-buttons {
+    display: flex;
+}
+
+.form-buttons .cancel {
+    background-color: black;
+    color: honeydew;
+    margin: 2rem;
+}
+
+.form-buttons .save {
+    background-color:rgb(145, 4, 4);
+    color: aliceblue;
+    margin: 2rem;
+}
+
+.form-buttons .cancel:hover {
+    background-color: rgb(37, 37, 37);
+}
+
+.form-buttons .save:hover {
+    background-color:rgb(207, 24, 24);
+}

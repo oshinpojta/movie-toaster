@@ -3,22 +3,18 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
-import BorderColorIcon from '@mui/icons-material/BorderColor';
 import "./MovieCard.css"
 import DeleteBtn from '../DeleteModal/DeleteBtn';
+import EditForm from '../EditModal/EditForm';
 
 const MovieCard = (props) => {
 
-  const { 
-    awards, cast,countries,directors, fullplot,generateUtilityClass,
-    ImageBitmapRenderingContext,LanguageSharp,lastupdated,plot,rated,released,runtime,title,
-    poster,tomatoes,type,WritableStream,YoutubeSearchedFor,_id
-  } = props.movie;
+  const { plot,title,poster,_id } = props.movie;
 
   const { isBookmarked, isFavorite, handleBookmarks, handleFavorites, handleDelete } = props.properties;
 
@@ -40,7 +36,7 @@ const MovieCard = (props) => {
         <CardActions className='card-action'>
           {isFavorite? <FavoriteIcon fontSize='large' className='favourite-icon' onClick={() => handleFavorites(_id)} /> : <FavoriteBorderIcon fontSize='large' className='favourite-saved-icon' onClick={() => handleFavorites(_id)} />}
           {isBookmarked? <BookmarkAddedIcon fontSize='large' className='list-saved-icon' onClick={() => handleBookmarks(_id)} /> : <BookmarkAddIcon fontSize='large' className='list-icon' onClick={() => handleBookmarks(_id)} />}
-          <BorderColorIcon fontSize='large' className='edit-icon' />
+          <EditForm movie={props.movie} />
           <DeleteBtn _id={_id} handleDelete={handleDelete} />
         </CardActions>
       </div>
