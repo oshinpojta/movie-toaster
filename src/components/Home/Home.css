@@ -23,8 +23,8 @@ body {
 	height: 100vh;
 } */
 
-.text-container{
-	
+.home-list li {
+	list-style: none;
 }
 
 .text-container h1{
