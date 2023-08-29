@@ -33,6 +33,19 @@ const GridLayout = (props) => {
 
   // regular variables
   let offset = 0;
+  let bookmarked_movies = localStorage.getItem("bookmarked_movies");
+  let favorite_movies = localStorage.getItem("favorite_movies");
+  if(bookmarked_movies){
+    bookmarked_movies = bookmarked_movies.split(",");
+  }else{
+    bookmarked_movies = [];
+  }
+  if(favorite_movies){
+    favorite_movies = favorite_movies.split(",");
+  }else{
+    favorite_movies = [];
+  }
+
   const state = useContext(AppContext);
   // states
   const { movies, setMovies } = state;
@@ -40,6 +53,31 @@ const GridLayout = (props) => {
   const { limit, setLimit } = state;
   const { hasMore, setHasMore } = state;
   const { searchText} = state;
+
+  const [ favoriteMovies, setFavouriteMovies ] = useState(favorite_movies);
+  const [ bookmarkedMovies, setBookmarkedMovies ] = useState(bookmarked_movies);
+
+  const handleFavorites = (_id) => {
+    let isFavorite = favoriteMovies.includes(_id);
+    if(isFavorite){
+      setFavouriteMovies(favoriteMovies.filter( id => id !== _id ));
+      localStorage.setItem("favorite_movies", favoriteMovies.filter( id => id !== _id))
+    }else{
+      setFavouriteMovies( [...favoriteMovies, _id] );
+      localStorage.setItem("favorite_movies", [...favoriteMovies, _id] )
+    }
+  } 
+
+  const handleBookmarks = (_id) => {
+    let isBookmarked = bookmarkedMovies.includes(_id);
+    if(isBookmarked){
+      setBookmarkedMovies(bookmarkedMovies.filter( id => id !== _id));
+      localStorage.setItem("bookmarked_movies", bookmarkedMovies.filter( id => id !== _id))
+    }else{
+      setBookmarkedMovies([...bookmarkedMovies, _id]);
+      localStorage.setItem("bookmarked_movies", [...bookmarkedMovies, _id])
+    }
+  }
 
   const loadMore = () => {
     setProgress(40)
@@ -84,7 +122,12 @@ const GridLayout = (props) => {
     >
      <div className="wrapper">
         {movies.map((item, index)=>{
-          return <MovieCard key={item._id} movie={{...item}} />
+          return <MovieCard key={item._id} properties={{
+            isBookmarked : bookmarkedMovies.includes(item._id),
+            isFavorite : favoriteMovies.includes(item._id),
+            handleBookmarks,
+            handleFavorites
+          }} movie={{...item}} />
         })}
     </div> 
     </InfiniteScroll>

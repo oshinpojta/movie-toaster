@@ -25,6 +25,8 @@ function App() {
   const [ limit, setLimit ] = useState(12);
   const [ hasMore, setHasMore ] = useState(true);
   const [ searchText, setSearchText ] = useState("");
+  const [ favoriteMovies, setFavouriteMovies ] = useState([]);
+  const [ bookmarkedMovies, setBookmarkedMovies ] = useState([]);
 
   const state = {
     movies, setMovies,
@@ -33,6 +35,7 @@ function App() {
     hasMore, setHasMore,
     searchText, setSearchText
   }
+
 
   return (
     <AppContext.Provider value={state}>
