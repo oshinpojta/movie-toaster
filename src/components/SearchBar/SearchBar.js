@@ -31,9 +31,9 @@ export default function SearchBar() {
 
   const searchMovies = (searchText) => {
     setProgress(40)
+    setSearchText(searchText);
     axios.post(`${serverURL}/movies/all`, { search_text : searchText }, jsonHeaders).then((response) => {
       // console.log(response);
-      setSearchText(searchText);
       setMovies(response.data.data.movies);
       setProgress(100)
       if(response.data.data.movies.length < limit){

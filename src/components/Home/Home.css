@@ -23,8 +23,11 @@ body {
 	height: 100vh;
 } */
 
+
 .home-list li {
-	list-style: none;
+	margin-left: 10%;
+	text-align:left;
+	list-style: circle
 }
 
 .text-container h1{
@@ -36,6 +39,7 @@ body {
 	margin: 1.2rem;
 	font-family: 'Kanit', sans-serif;
 	font-size: 2rem;
+	font-weight: 700;
 }
 
 @media screen and (max-width : 1000px) {
