@@ -1,0 +1,98 @@
+
+
+/* Search Bar */
+
+form {
+	margin: 50px;
+  margin-left: 18%;
+}
+input {
+	outline: none;
+}
+
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+input[type=search] {
+  cursor: text;
+	padding: 9px 10px 9px 32px;
+	width: 55px;
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	
+	-webkit-border-radius: 10em;
+	   -moz-border-radius: 10em;
+	        border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	   -moz-transition: all .5s;
+	        transition: all .5s;
+}
+input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	border-color: #66CC75;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	   -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	        box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+/* Demo 3 */
+#demo-3 {
+    position: relative;
+    font-size: 1.2rem;
+    width: 200px;
+  }
+  #demo-3 input[type=submit] {
+    position: absolute;
+    cursor: pointer;
+    top: 5px;
+    right: 5%;
+    width: 66px;
+    height: 46px;
+    color: #fff;
+    background-color: crimson;
+    border: 4px solid #ededed;
+    
+      -webkit-border-radius: 20px;
+         -moz-border-radius: 20px;
+              border-radius: 20px;
+      
+      -webkit-transition: all .5s;
+         -moz-transition: all .5s;
+              transition: all .5s;
+  }
+  #demo-3 input[type=search] {
+    float: right;
+    width: 200px;
+    font-size: 1.3rem;
+    margin-left: 5rem;
+    padding: 20px 50px 20px 20px;
+    cursor: text;
+    background: none;
+    background-color: #ededed;
+  }
+  #demo-3 input[type=search]:hover {
+      background-color: #fff;
+  }
+  #demo-3 input[type=search]:focus {
+      width: 240px;
+      color: #000;
+      background-color: #fff;
+      cursor: auto;
+  }
+  #demo-3 input[type=search]:focus ~ input[type=submit],
+  #demo-3 input[type=search]:hover ~ input[type=submit] {
+    border-color: #fff;
+  }
+  #demo-3 input:-moz-placeholder {
+      color: transparent;
+  }

@@ -8,7 +8,7 @@ const TopLoader = (props) => {
     return (
       <div>
         <LoadingBar
-          color='#f11946'
+          color='#ffffff'
           progress={progress}
           height={4}
           shadow={true}

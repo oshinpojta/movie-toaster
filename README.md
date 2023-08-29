@@ -1,3 +1,40 @@
+# Movie Toaster
+
+Backend Node Server Hosted On : "https://personal-server-sttb.onrender.com"
+
+Frontend React Server Hosted On : "https://movie-toaster.netlify.app/"
+
+My PortFolio : "https://oshinpojta.netlify.app/"
+
+# Home Page
+   A large movies slider for skills display to customers and users, acting as a welcome page
+
+# Movies Page
+    Project Assignment Page
+    - added Search Bar for searching based on title, plot, cast, directors, genres, languages etc 
+    - elegant card ui
+    - use of webhooks like useState, useEffect, useRef, useContext 
+    - added features like setting offset and limit for pagination
+    - advanced UI like Top-Loader and Infinite-Scroll
+    - Enjoy the elegant UI ...!!!
+
+# Portfolio
+    Link to Portfolio
+
+# Contact
+    Link to LinkedIn Profile
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

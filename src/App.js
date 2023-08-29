@@ -6,10 +6,11 @@ import Footer from './components/Footer/Footer';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import {
-  BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import AppContext from './contexts/AppContext';
 
 const darkTheme = createTheme({
   palette: {
@@ -18,10 +19,23 @@ const darkTheme = createTheme({
 });
 
 function App() {
-  
 
+  const [ movies, setMovies ] = useState([]);
+  const [ progress, setProgress ] = useState(10)
+  const [ limit, setLimit ] = useState(12);
+  const [ hasMore, setHasMore ] = useState(true);
+  const [ searchText, setSearchText ] = useState("");
+
+  const state = {
+    movies, setMovies,
+    progress, setProgress,
+    limit, setLimit,
+    hasMore, setHasMore,
+    searchText, setSearchText
+  }
 
   return (
+    <AppContext.Provider value={state}>
     <ThemeProvider theme={darkTheme}>
     <CssBaseline />
     <div className="App">
@@ -33,6 +47,7 @@ function App() {
       <Footer />
     </div>
     </ThemeProvider>
+    </AppContext.Provider>
   );
 }
 

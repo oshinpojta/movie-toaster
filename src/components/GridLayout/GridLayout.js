@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "./GridLayout.css"
 import MovieCard from '../MovieCard/MovieCard';
 import axios from 'axios';
@@ -12,7 +12,9 @@ import WavingHandIcon from '@mui/icons-material/WavingHand';
 import { BottomNavigation } from '@mui/material';
 import CheckboxItem from '../CheckBox/CheckBoxItem';
 import SearchBar from '../SearchBar/SearchBar';
+import AppContext from '../../contexts/AppContext';
 
+const jsonHeaders = { headers: { "Content-Type": "application/json" } };
 
 const serverURL = process.env.REACT_APP_NODEJS_URL;
 const Genres = [ 
@@ -31,17 +33,18 @@ const GridLayout = (props) => {
 
   // regular variables
   let offset = 0;
-
+  const state = useContext(AppContext);
   // states
-  const [ movies, setMovies ] = useState([]);
-  const [ progress, setProgress ] = useState(10)
-  const [ limit, setLimit ] = useState(12);
-  const [ hasMore, setHasMore ] = useState(true);
+  const { movies, setMovies } = state;
+  const { progress, setProgress } = state;
+  const { limit, setLimit } = state;
+  const { hasMore, setHasMore } = state;
+  const { searchText} = state;
 
   const loadMore = () => {
     setProgress(40)
     setLimit(2*limit);
-    axios.post(`${serverURL}/movies/all?limit=${limit*2}&offset=${offset}`).then((response) => {
+    axios.post(`${serverURL}/movies/all?limit=${limit*2}&offset=${offset}`, { search_text : searchText }, jsonHeaders).then((response) => {
       setMovies(response.data.data.movies);
       setProgress(100)
       if(response.data.data.movies.length < limit){
@@ -53,7 +56,7 @@ const GridLayout = (props) => {
 
   useEffect(() => {
     setProgress(40)
-    axios.post(`${serverURL}/movies/all?limit=${limit}&offset=${offset}`).then((response) => {
+    axios.post(`${serverURL}/movies/all?limit=${limit}&offset=${offset}`,  { search_text : searchText }, jsonHeaders).then((response) => {
       setMovies(response.data.data.movies);
       setProgress(100)
     })
@@ -64,11 +67,12 @@ const GridLayout = (props) => {
     <TopLoader progress={progress} setProgress={setProgress} />
     <div className='spacing-container'>
     </div>
+     <SearchBar />
     <div className='filters-div'> 
       {/* <CheckboxItem fontSize="medium" genres={Genres} className="checkbox-item"/> */}
     </div>
     <InfiniteScroll
-      dataLength={movies.length+100} //This is important field to render the next data
+      dataLength={movies.length+12} //This is important field to render the next data
       next={loadMore}
       hasMore={hasMore}
       loader={<Spinner />}
