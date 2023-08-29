@@ -102,7 +102,7 @@ const GridLayout = (props) => {
     setProgress(40)
     axios.post(`${serverURL}/movies/all?limit=${limit}&offset=${offset}`,  { search_text : searchText }, jsonHeaders).then((response) => {
       setMovies(response.data.data.movies);
-      console.log(response.data.data.movies)
+      // console.log(response.data.data.movies)
       setProgress(100)
     })
   }

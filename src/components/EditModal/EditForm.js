@@ -76,7 +76,7 @@ export default function EditForm(props) {
                 <label>Genres</label>
                 <input type='text' value={genres ? genres.toString() : ""} placeholder='Genres'/>
                 <label>Released On</label>
-                <input type='datetime-local' value={new Date(released).toISOString().slice(0,19)} placeholder='Released On'/>
+                <input type='datetime-local' value={ released ? new Date(released).toISOString().slice(0,19) : ""} placeholder='Released On'/>
                 <div className='form-buttons'>
                     <input type="button" className='cancel' value="Cancel" />
                     <input type="button" className='save' value="Save" />
