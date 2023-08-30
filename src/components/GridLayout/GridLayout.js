@@ -30,7 +30,6 @@ const serverURL = process.env.REACT_APP_NODEJS_URL;
 const GridLayout = (props) => {
 
   // regular variables
-  let offset = 0;
   let bookmarked_movies = localStorage.getItem("bookmarked_movies");
   let favorite_movies = localStorage.getItem("favorite_movies");
   if(bookmarked_movies){
@@ -50,7 +49,7 @@ const GridLayout = (props) => {
   const { progress, setProgress } = state;
   const { limit, setLimit } = state;
   const { hasMore, setHasMore } = state;
-  const { searchText} = state;
+  const { searchText, getMovies, offset} = state;
 
   const [ favoriteMovies, setFavouriteMovies ] = useState(favorite_movies);
   const [ bookmarkedMovies, setBookmarkedMovies ] = useState(bookmarked_movies);
@@ -95,17 +94,12 @@ const GridLayout = (props) => {
       if(response.data.data.movies.length < limit){
         setHasMore(false);
       }
+    }).catch( err  => {
+      console.log(err)
+      setProgress(100);
     })
   }
 
-  const getMovies = () => {
-    setProgress(40)
-    axios.post(`${serverURL}/movies/all?limit=${limit}&offset=${offset}`,  { search_text : searchText }, jsonHeaders).then((response) => {
-      setMovies(response.data.data.movies);
-      // console.log(response.data.data.movies)
-      setProgress(100)
-    })
-  }
 
   useEffect(getMovies, []);
 

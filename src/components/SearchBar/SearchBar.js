@@ -39,6 +39,9 @@ export default function SearchBar() {
       if(response.data.data.movies.length < limit){
         setHasMore(false);
       }
+    }).catch( err  => {
+      console.log(err)
+      setProgress(100);
     })
   }
 

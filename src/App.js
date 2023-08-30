@@ -11,12 +11,18 @@ import {
 } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import AppContext from './contexts/AppContext';
+import axios from 'axios';
 
 const darkTheme = createTheme({
   palette: {
     mode: 'light',
   },
 });
+
+
+const jsonHeaders = { headers: { "Content-Type": "application/json" } };
+const offset = 0;
+const serverURL = process.env.REACT_APP_NODEJS_URL;
 
 function App() {
 
@@ -25,15 +31,26 @@ function App() {
   const [ limit, setLimit ] = useState(12);
   const [ hasMore, setHasMore ] = useState(true);
   const [ searchText, setSearchText ] = useState("");
-  const [ favoriteMovies, setFavouriteMovies ] = useState([]);
-  const [ bookmarkedMovies, setBookmarkedMovies ] = useState([]);
+
+  const getMovies = () => {
+    setProgress(40)
+    axios.post(`${serverURL}/movies/all?limit=${limit}&offset=${offset}`,  { search_text : searchText }, jsonHeaders).then((response) => {
+      setMovies(response.data.data.movies);
+      // console.log(response.data.data.movies)
+      setProgress(100)
+    }).catch( err  => {
+      console.log(err)
+      setProgress(100);
+    })
+  }
 
   const state = {
     movies, setMovies,
     progress, setProgress,
     limit, setLimit,
     hasMore, setHasMore,
-    searchText, setSearchText
+    searchText, setSearchText,
+    getMovies, offset
   }
 
 
