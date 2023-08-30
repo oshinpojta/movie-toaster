@@ -11,6 +11,7 @@ import TagFacesSharpIcon from '@mui/icons-material/TagFacesSharp';
 import WavingHandIcon from '@mui/icons-material/WavingHand';
 import SearchBar from '../SearchBar/SearchBar';
 import AppContext from '../../contexts/AppContext';
+import AddForm from '../AddModal/AddForm';
 
 const jsonHeaders = { headers: { "Content-Type": "application/json" } };
 
@@ -108,9 +109,10 @@ const GridLayout = (props) => {
     <TopLoader progress={progress} setProgress={setProgress} />
     <div className='spacing-container'>
     </div>
-     <SearchBar />
+    
     <div className='filters-div'> 
-      {/* <CheckboxItem fontSize="medium" genres={Genres} className="checkbox-item"/> */}
+    <SearchBar />
+    <AddForm />
     </div>
     <InfiniteScroll
       dataLength={movies.length+12} //This is important field to render the next data

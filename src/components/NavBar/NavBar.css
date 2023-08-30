@@ -110,6 +110,9 @@ body {
 	.myP {
 		padding: 2%;
 	}
+	.toaster-header{
+		font-size: 4rem;
+	}
 }
 
 /* Media qurey section */
@@ -121,6 +124,9 @@ body {
     .nav div.main_list ul li a {
         font-size: large;
     }
+	.toaster-header{
+		font-size: 4rem;
+	}
 }
 
 @media screen and (max-width: 768px) {

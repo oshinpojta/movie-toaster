@@ -3,7 +3,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
-import "./EditForm.css";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import "./AddForm.css";
 import AppContext from '../../contexts/AppContext';
 import axios from 'axios';
 
@@ -39,16 +40,42 @@ const style = {
     width: 400,
     height : 550
   }
-};
+}
 
-export default function EditForm(props) {
+const addButtonStyle = {
+  width : "60px",
+  height: "60px",
+  color:"crimson",
+  // marginLeft : "1rem",
+  position:"relative",
+  transition : "0.4s ease",
+  '&:hover': {
+    color: "#b00089",
+    width:"63px",
+    height:"63px"
+ },
+ "@media screen and (max-width : 700px)" : {
+    width:"50px",
+    height:"50px",
+    // marginLeft : "3rem",
+ }
+}
+
+export default function AddForm(props) {
 
   const { setProgress, getMovies } = React.useContext(AppContext);
   const [open, setOpen] = React.useState(false);
-  const [ formState, setFormState ] = React.useState(props.movie);
+  const [ formState, setFormState ] = React.useState({
+    title:"", 
+    genres : "", awards : "", 
+    languages : "", cast : "",
+    countries : "",directors :"", 
+    fullplot : "",rated : "",
+    released : "",runtime : "",
+    poster : "",type : ""
+  });
 
-  const { 
-    _id, title, genres, awards, languages, cast,countries,directors, fullplot,rated,released,runtime,
+  const { title, genres, awards, languages, cast,countries,directors, fullplot,rated,released,runtime,
     poster,type
   } = formState;
 
@@ -67,7 +94,7 @@ export default function EditForm(props) {
     body.plot = body.fullplot.slice(0, body.fullplot.length > 200 ? 195: body.fullplot.length) + (body.fullplot.length > 200 ? " ...": "");
 
     setProgress(10);
-    axios.put(`${serverURL}/movies/update`, body).then( response => {
+    axios.post(`${serverURL}/movies/add`, body).then( response => {
       if(response && response.data.data) { 
         console.log(response.data);
         getMovies()
@@ -80,10 +107,12 @@ export default function EditForm(props) {
   }
 
   return (
-    <div className='edit-container'>
+    <div className='add-container'>
 
-        {/* edit icon */}
-      <BorderColorIcon fontSize='large' className='edit-icon' onClick={handleOpen} />
+        {/* add icon */}
+        <div>
+          <AddCircleOutlineIcon fontSize='large' className='edit-icon' onClick={handleOpen} sx={addButtonStyle} />
+        </div>
       
        {/* open modal */}
       <Modal 
@@ -95,7 +124,7 @@ export default function EditForm(props) {
       >
         <Box className="edit-box" sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            <h1><strong>Update Movie Details</strong></h1>
+            <h1><strong>Add Movie Details</strong></h1>
           </Typography>
           <Typography className='edit-form-typography' id="modal-modal-description" sx={{ mt: 2 }}>
             <form className='edit-form'>
@@ -125,7 +154,7 @@ export default function EditForm(props) {
                 <input type='datetime-local' value={ released ? new Date(released).toISOString().slice(0,19) : ""} placeholder='Released On' onChange={(e) => setFormState({ ...formState, released : e.target.value })}/>
                 <div className='form-buttons'>
                     <input type="button" className='cancel' value="Cancel" onClick={handleCancel} />
-                    <input type="button" className='save' value="Update" onClick={() => handleUpdate()}/>
+                    <input type="button" className='save' value="Add Movie" onClick={() => handleUpdate()}/>
                 </div>
             </form>
           </Typography>

@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+.add-container{
+    display: block;
+    /* margin: 1rem; */
+    margin: 1rem;
+    margin-top : 5rem;
+}
+
+
+/* Modal Begin */
+
+.edit-modal{
+    /* background-color: aquamarine; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.edit-box h1{
+    font-family: 'Kanit', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+
+.edit-box p{
+    font-family: 'Kanit', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.edit-form-typography{
+    /* background-color: brown; */
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+.edit-form{
+    display: block;
+    /* background-color: aqua; */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.edit-form label {
+    display: block;
+    font-size: 2rem;
+    margin: 0.7rem;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    font-weight: 600;
+    font-family: 'Kanit', sans-serif;
+    background-color: rgb(48, 48, 48);
+    color: aliceblue;
+}
+
+.edit-form input {
+    display: block;
+    width: 100%;
+    font-size: 1.8rem;
+    border: none;
+    color: rgb(95, 94, 94);
+    font-weight: 600;
+    background-color: rgb(223, 226, 226);
+    border-radius: 2px;
+    padding: 1.5rem;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    box-shadow: 3px 3px 3px 2px #ccc inset;
+}
+
+.edit-form textarea {
+    display: block;
+    width: 100%;
+    font-size: 1.8rem;
+    color: rgb(95, 94, 94);
+    font-weight: 600;
+    padding: 1.5rem;
+    background-color: rgb(223, 226, 226);
+    border: none;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    box-shadow: 3px 3px 3px 2px #ccc inset;
+}
+
+.form-buttons {
+    display: flex;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-buttons .cancel {
+    background-color: black;
+    color: honeydew;
+    margin: 2rem;
+}
+
+.form-buttons .save {
+    background-color:rgb(145, 4, 4);
+    color: aliceblue;
+    margin: 2rem;
+}
+
+.form-buttons .cancel:hover {
+    background-color: rgb(37, 37, 37);
+}
+
+.form-buttons .save:hover {
+    background-color:rgb(207, 24, 24);
+}
+
+@media screen and (max-width : 900px) {
+
+    .edit-box h1{
+        font-size: 2.3rem;
+    }
+
+    .edit-form label {
+        font-size: 1.6rem;
+        margin: 0.7rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding: 0.8rem;
+    }
+    
+    .edit-form input {
+        font-size: 1.7rem;
+        padding: 1rem;
+    }
+    
+    .edit-form textarea {
+        font-size: 1.7rem;
+        padding: 1rem;
+    }
+    
+    .form-buttons {
+        display: flex;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-buttons .cancel {
+        margin: 1.4rem;
+    }
+    
+    .form-buttons .save {
+        margin: 1.4rem;
+    }
+}
