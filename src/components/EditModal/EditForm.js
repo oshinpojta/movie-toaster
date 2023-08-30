@@ -48,7 +48,7 @@ export default function EditForm(props) {
   const [ formState, setFormState ] = React.useState(props.movie);
 
   const { 
-    _id,title, genres, awards, cast,countries,directors, fullplot,rated,released,runtime,
+    _id, title, genres, awards, languages, cast,countries,directors, fullplot,rated,released,runtime,
     poster,type
   } = formState;
 
@@ -57,10 +57,20 @@ export default function EditForm(props) {
   const handleClose = () => setOpen(false);
   const handleCancel = () => setOpen(false);
   const handleUpdate = () => {
+
+    let body = {...formState};
+    body.countries = typeof body.countries === "string" ? body.countries.split(",").map((item) => item.trim()) : body.countries;
+    body.directors = typeof body.directors === "string" ? body.directors.split(",").map((item) => item.trim()) : body.directors;
+    body.genres = typeof body.genres === "string" ? body.genres.split(",").map((item) => item.trim()) : body.genres;
+    body.cast = typeof body.cast === "string" ? body.cast.split(",").map((item) => item.trim()) : body.cast;
+    body.languages = typeof body.languages === "string" ? body.languages.split(",").map((item) => item.trim()) : body.languages;
+  
     setProgress(10);
-    axios.put(`${serverURL}/movies/update`, { ...formState }).then( response => {
+    axios.put(`${serverURL}/movies/update`, body).then( response => {
       if(response && response.data.data) { 
+        console.log(response.data);
         getMovies()
+        setOpen(false);
       };
     }).catch( err  => {
       console.log(err)
@@ -94,6 +104,8 @@ export default function EditForm(props) {
                 <textarea rows="10" cols="110" id="updateTextArea" defaultValue={fullplot} onChange={(e) => setFormState({ ...formState, fullplot : e.target.value })} ></textarea>
                 <label>Cast</label>
                 <input type='text' id="updateCast" value={cast ? cast.toString() : ""} placeholder='Cast' onChange={(e) => setFormState({ ...formState, cast : e.target.value })}/>
+                <label>Languages</label>
+                <input type='text' id="updateLanguage" value={languages ? languages.toString() : ""} placeholder='Languages' onChange={(e) => setFormState({ ...formState, languages : e.target.value })}/>
                 <label>Poster URL</label>
                 <input type='text' value={poster} placeholder='Poster URL' onChange={(e) => setFormState({ ...formState, poster : e.target.value })}/>
                 <label>Rated</label>
